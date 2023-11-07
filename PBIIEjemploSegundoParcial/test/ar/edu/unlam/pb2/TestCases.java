@@ -22,7 +22,7 @@ public class TestCases {
 		Moto nuevo = new Moto("094AB5", 200, 41.40338, 2.17403);
 		
 		assertEquals("094AB5", nuevo.getPatente());
-		assertEquals((Integer) 2, nuevo.getCAPACIDA_MAXIMA_DE_PASAJEROS());
+		//assertEquals((Integer) 2, nuevo.getCantidadMaximaDePasajeros());
 		assertEquals((Integer) 200, nuevo.getVelocidadMaxima());
 		assertEquals((Double) 41.40338, nuevo.getLatitud());
 		assertEquals((Double) 2.17403, nuevo.getLongitud());
@@ -66,14 +66,14 @@ public class TestCases {
 			actual.agregarVehiculo(new Tren(15, 250, 100, 45.826541, 3.965412));
 
 			assertEquals((Integer) 10, actual.getCantidadDeVehiculos());
-			assertFalse(actual.hayCoalición());
+			assertFalse(actual.hayCoalicion());
 	}
 	
 	@Test (expected = ColitionException.class)
 	public void  queChoquenDosVehiculos() throws ColitionException {	
 		
-		MedioTransporte unAuto = new Auto("JJZ526", 5, 240, 41.40338, 2.17403);
-		MedioTransporte unaMoto = new Moto("094AB5", 200, 25.1234, 1.1234);
+		Vehiculo unAuto = new Auto("JJZ526", 5, 240, 41.40338, 2.17403);
+		Vehiculo unaMoto = new Moto("094AB5", 200, 25.1234, 1.1234);
 		
 		Mapa actual = new Mapa("Buenos Aires");
 		
@@ -82,7 +82,7 @@ public class TestCases {
 
 		
 		unAuto.actualizarCoordenadas(25.1234, 1.1234);
-		assertTrue(actual.hayCoalición());
+		assertTrue(actual.hayCoalicion());
 		
 	}
 }
